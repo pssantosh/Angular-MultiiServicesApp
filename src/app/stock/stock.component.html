@@ -1,3 +1,15 @@
-<p>
-  stock works!
-</p>
+<h3>Get Stock details</h3>
+<div class="col-md-12">
+  <div class="form-group">
+    <input type="text" required class="form-control" [(ngModel)]='id_stock' (change)='getStockPrice()' placeholder="Enter the stock name">
+    <br><br><br>
+    <h3>Stock Details</h3>
+    <p class="well">
+      <i>Stock Name:</i>{{this.op_name}}<br>
+      <i>Market Name:</i>{{this.op_market}}<br>
+      <i>Stock Price:</i>{{this.op_stkPrice}}<br>
+      <i>Today's Change:</i>{{this.op_updateOn}}<br>
+      <i>Last Updatedon:</i>{{this.op_change}}<br>
+    </p>
+  </div>
+</div>

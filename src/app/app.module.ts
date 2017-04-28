@@ -12,6 +12,7 @@ import { MovieComponent } from './movie/movie.component';
 import { CurrencyComponent } from './currency/currency.component';
 import { StockComponent } from './stock/stock.component';
 import { BookComponent } from './book/book.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BookComponent } from './book/book.component';
     MovieComponent,
     CurrencyComponent,
     StockComponent,
-    BookComponent
+    BookComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,13 @@
-<p>
-  currency works!
-</p>
+<h2>Currency converter</h2>
+<div class="col-md-12">
+  <div class="form-group">
+    <input type="text" required class="form-control" (change)='callCurrencyService()' [(ngModel)]='id_currency'
+    placeholder="Enter currency symbol like GBP(,AUD,INR)">
+    <br><br><br>
+    <h3>Exchange Rates</h3>
+    <br>
+    <p class="well">
+      Exchange rate relative to Euro in a JSON format: : {{ this.my_result }}
+    </p>
+  </div>
+</div>

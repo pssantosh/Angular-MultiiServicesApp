@@ -1,3 +1,17 @@
-<p>
-  movie works!
-</p>
+<h2>Open Movie Database</h2>
+<div class="col-md-12">
+  <div class="form-group">
+    <input type="text" required [(ngModel)]="id_movie" (change)="callMovieService()" class="form-control" placeholder="Enter movie name">
+    <br><br><br>
+    <h3>Movie Details</h3>
+    <br>
+    <p class="well">
+      <i>Title: </i>{{this.mv_Title}}<br>
+      <i>Plot: </i>{{this.mv_Plot}}<br>
+      <i>Actors: </i>{{this.mv_Actors}}<br>
+      <i>Directed by: </i>{{this.mv_Director}}<br>
+      <i>Rated: </i>{{this.mv_Rated}}<br>
+      <i>Release Date: </i>{{this.mv_Released}}<br>
+    </p>
+  </div>
+</div>

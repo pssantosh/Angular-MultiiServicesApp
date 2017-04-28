@@ -1,3 +1,16 @@
-<p>
-  weather works!
-</p>
+<h2>Yahoo! Weather</h2>
+<div class="col-md-12">
+  <div class="form-group">
+    <input type="text" required [(ngModel)]='id_city' class="form-control" placeholder="City"><br>
+    <input type="text" required [(ngModel)]='id_state' class="form-control" placeholder="State"><br>
+    <input type="button" (click)='callWeatherService()' class='btn btn-primary' value="Submit"><br>
+    <br><br>
+    <h3>Weather Details</h3>
+    <br>
+    <p class="well">
+      <i>City, State, Country :</i> {{ this.op_city }} {{ this.op_region }} {{ this.op_country }} <br>
+      <i>Current Condition :</i> {{ this.op_text }} <br>
+      <i>Current Temperature :</i> {{ this.op_temp }} <br>
+    </p>
+  </div>
+</div>
