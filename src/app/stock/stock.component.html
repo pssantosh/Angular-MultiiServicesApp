@@ -7,9 +7,9 @@
     <p class="well">
       <i>Stock Name:</i>{{this.op_name}}<br>
       <i>Market Name:</i>{{this.op_market}}<br>
-      <i>Stock Price:</i>{{this.op_stkPrice}}<br>
-      <i>Today's Change:</i>{{this.op_updateOn}}<br>
-      <i>Last Updatedon:</i>{{this.op_change}}<br>
+      <i>Stock Closing Price:</i>{{this.op_stkPrice}}<br>
+      <i>Today's Change:</i>{{this.op_change | number:'1.2-5'}}<br>
+      <i>Last Updatedon:</i>{{this.op_updateOn | date:'medium'}}<br>
     </p>
   </div>
 </div>

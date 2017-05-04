@@ -12,7 +12,12 @@ export class SharedService {
   findMovieURL1 = "http://www.omdbapi.com/?t=";
   findMovieURL2 = "&y=&plot=short&r=json"; 
   currencyURL   = "http://api.fixer.io/latest?symbols=";
-  getStockURL   = "http://finance.google.com/finance/info?client=ig&q=NSE:";
+  currencyConv1 = "http://api.fixer.io/latest?base="
+  currencyConv2 = ";symbols="
+  getStockURL   = "https://www.quandl.com/api/v3/datasets/NSE/";
+  getStockURL1  = ".json?api_key=zksN5yaT-sPFxa6q2gSY&start_date=2017-04-26&end_date=2017-04-26";
+  bookURL1      = "https://www.googleapis.com/books/v1/volumes?q=";
+  bookURL2      = "&maxResults="
   totReqsMade: number = 0;
   url : string = '';
   result : string[];
@@ -40,15 +45,16 @@ export class SharedService {
               .catch(error => Observable.throw(error.json().error));
   }
 
-  getBookDetails(book){
+  getBookDetails(book, resultCnt = 1){
     this.totReqsMade = this.totReqsMade + 1;
+    return this._http.get(this.bookURL1 + book + this.bookURL2 + resultCnt)
+              .map( response => { { return response.json()}; })
+              .catch (error => Observable.throw(error.json().error));
   }
 
-  getStockDetail(stock) : Observable<string[]>{
-    this.totReqsMade = this.totReqsMade + 1;
-    this.url = this.getStockURL + stock;
-    return this._http.get(this.url)
-              .map( response => { { return <string[]>response.json()}; })
+  getStockDetail(stock){
+    return this._http.get(this.getStockURL + stock + this.getStockURL1)
+              .map( response => {{ return response.json() }; })
               .catch( error => Observable.throw(error.json().error));
   }
 }

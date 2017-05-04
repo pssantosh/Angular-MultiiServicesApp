@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from "./../services/shared.service";
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-stock',
@@ -25,11 +26,11 @@ export class StockComponent implements OnInit {
       this._sharedService.getStockDetail(this.id_stock)
             .subscribe(
               lstresult => {
-                this.op_name = lstresult[0]["t"];
-                this.op_market = lstresult[0]["e"];
-                this.op_stkPrice = lstresult[0]["l"];
-                this.op_updateOn = lstresult[0]["lt"];
-                this.op_change = lstresult[0]["c"];
+                this.op_name = lstresult['dataset']['name'];
+                this.op_market = lstresult['dataset']['database_code'];
+                this.op_stkPrice = lstresult['dataset']['data'][0][4];
+                this.op_updateOn = lstresult['dataset']['refreshed_at'];
+                this.op_change = (lstresult['dataset']['data'][0][4] - lstresult['dataset']['data'][0][3]);
               },
               error => {
                 console.log('Unable to get the stock price at this point of time because of the below error');
